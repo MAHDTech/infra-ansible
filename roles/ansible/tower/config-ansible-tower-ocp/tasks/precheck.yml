@@ -40,27 +40,6 @@
     redis_cpu_limit: "{{ansible_tower.install.redis.cpu_limit | d(redis_cpu_limit) }}"
     redis_mem_limit: "{{ansible_tower.install.redis.mem_limit | d(redis_mem_limit) }}"
 
-- name: FAIL TO CHECK LIMITS
-  fail:
-    msg:
-      - "{{ pg_cpu_request }}"
-      - "{{ pg_cpu_limit }}"
-      - "{{ pg_mem_request }}"
-      - "{{ pg_mem_limit }}"
-      - "{{ web_mem_request }}"
-      - "{{ web_mem_limit }}"
-      - "{{ web_cpu_request }}"
-      - "{{ web_cpu_limit }}"
-      - "{{ task_mem_request }}"
-      - "{{ task_mem_limit }}"
-      - "{{ task_cpu_request }}"
-      - "{{ task_cpu_limit }}"
-      - "{{ redis_mem_request }}"
-      - "{{ redis_mem_limit }}"
-      - "{{ redis_cpu_request }}"
-      - "{{ redis_cpu_limit }}"
-  no_log: False
-
 - name: Check if inventory file variables are defined
   fail: msg="Please specify the value of {{item}} in your inventory file"
   when: "{{item}} is undefined or {{item}} == ''"
