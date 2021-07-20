@@ -1,0 +1,8 @@
+---
+
+- name: Remove IPA/IdM identities
+  hosts: identity-hosts
+  gather_facts: no
+  roles:
+    - role: identity-management/remove-idm-identities
+    #- role: scm/commit-push-repo-changes

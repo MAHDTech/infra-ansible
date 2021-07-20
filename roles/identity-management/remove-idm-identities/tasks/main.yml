@@ -1,0 +1,17 @@
+---
+
+- name: DEBUG MESSAGE
+  debug:
+    msg:
+      - "HELLO WORLD!"
+
+#- name: Process IPA/IdM Identities when targeted
+#  block:
+#
+#    - import_tasks: create_users.yml
+#    - import_tasks: create_groups.yml
+#
+#  when:
+#    - identities_reset.targets is undefined or
+#      'idm' in identities.targets
+#
